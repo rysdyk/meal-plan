@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  root "meals#index"
+  root "plans#index"
 
-  resources :meals, as: :meals
+  resources :meals
+
+  resources :plans
+
+  resources :recipes
+
 end

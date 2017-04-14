@@ -10,16 +10,64 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170414184347) do
+ActiveRecord::Schema.define(version: 20170414231016) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "ingredients", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "instructions", force: :cascade do |t|
+    t.integer  "recipe_id"
+    t.integer  "ingredient_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.float    "quantity"
+    t.string   "unit"
+    t.index ["ingredient_id"], name: "index_instructions_on_ingredient_id", using: :btree
+    t.index ["recipe_id"], name: "index_instructions_on_recipe_id", using: :btree
+  end
+
   create_table "meals", force: :cascade do |t|
+    t.integer  "plan_id"
+    t.integer  "recipe_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["plan_id"], name: "index_meals_on_plan_id", using: :btree
+    t.index ["recipe_id"], name: "index_meals_on_recipe_id", using: :btree
+  end
+
+  create_table "plans", force: :cascade do |t|
     t.string   "name"
     t.text     "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "recipes", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "servings"
+    t.integer  "calories"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "steps", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "recipe_id"
+  end
+
+  add_foreign_key "instructions", "ingredients"
+  add_foreign_key "instructions", "recipes"
+  add_foreign_key "meals", "plans"
+  add_foreign_key "meals", "recipes"
+  add_foreign_key "steps", "recipes"
 end
