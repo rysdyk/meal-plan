@@ -41,6 +41,7 @@ gem 'paperclip', '~> 5.1'  # for images
 gem 'simple_form'   # rails generate simple_form:install --foundation
 gem 'haml', '~> 4.0', '>= 4.0.7'
 gem 'devise', '~> 4.2', '>= 4.2.1'
+# gem 'cocoon' # nested forms
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

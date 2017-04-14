@@ -1,0 +1,10 @@
+.row
+  .columns.small-12
+    %h1 Meals Plans
+.row
+  - @meals.each do |m|
+    .columns.small-12
+      = link_to m.name, meal_path(m)
+.row
+  .columns.small-12
+    = link_to "Add New Meal Plan", new_meal_path, class: 'button'
