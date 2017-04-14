@@ -1,4 +1,5 @@
-@import 'shared/global';
+@import "shared/variables";
+@import "shared/mixins";
+@import "shared/global";
 
-
-@import 'styles/meals';
+@import "styles/meals";
