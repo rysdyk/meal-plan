@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+  before_action :get_recipe, only: [:show, :edit, :update, :destroy]
 
   def index
   end
@@ -24,7 +25,7 @@ class RecipesController < ApplicationController
   private
 
   def get_recipe
-    Recipe.find(params[:id])
+    @recipe = Recipe.find(params[:id])
   end
 
   def recipe_params

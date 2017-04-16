@@ -9,7 +9,7 @@
     - @plan.recipes.each do |recipe|
       .columns.small-12.medium-6.large-4.end
         #recipe
-          %h3= recipe.name
+          %h3= link_to recipe.name, recipe_path(recipe)
           %p= recipe.description
           %p= recipe.servings
           %p

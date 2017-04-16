@@ -9,7 +9,7 @@ class PlansController < ApplicationController
   end
 
   def new
-    @plan = Plan.new
+    @plan = Plan.build
   end
 
   def create
@@ -26,6 +26,9 @@ class PlansController < ApplicationController
   end
 
   def update
+    puts "#" * 10
+    puts plan_params
+
     if @plan.update(plan_params)
       redirect_to @plan, notice: "Successfully updated new meal plan!"
     else
@@ -41,7 +44,7 @@ class PlansController < ApplicationController
   private
 
   def plan_params
-    params.require(:plan).permit(:name, :notes, :recipes)
+    params.require(:plan).permit(:name, :notes, recipes_attributes: [:id, :name, :description, :servings, :calories])
   end
 
   def find_plan

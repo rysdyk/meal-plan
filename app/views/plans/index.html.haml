@@ -6,5 +6,7 @@
     .columns.small-12
       = link_to p.name, plan_path(p)
 .row
-  .columns.small-12
+  .columns.small-6
     = link_to "Add New Meal Plan", new_plan_path, class: 'button'
+  .columns.small-6
+    = link_to "Add New Recipe", '#', class: 'button'
