@@ -1,9 +1,6 @@
-= simple_form_for @plan do |f|
-  = f.input :name
-  = f.input :notes
-  = f.simple_fields_for :recipes do |r|
-    = r.input :name
-    = r.input :description
-    = r.input :servings
-    = r.input :calories
-  = f.button :submit, class: 'button'
+= form_for @plan do
+  = text_field_tag :name, @plan.name
+  = text_field_tag :notes, @plan.notes
+  - Recipe.all.each do |recipe|
+    = check_box_tag :recipe_ids, recipe.id, @plan.recipes.include?(recipe), name: 'plan[recipe_ids][]'
+  = submit_tag

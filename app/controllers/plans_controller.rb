@@ -26,8 +26,8 @@ class PlansController < ApplicationController
   end
 
   def update
-    puts "#" * 10
-    puts plan_params
+
+    @plan.attributes = {'recipe_ids' => []}.merge(params[:plan] || {})
 
     if @plan.update(plan_params)
       redirect_to @plan, notice: "Successfully updated new meal plan!"
@@ -44,7 +44,7 @@ class PlansController < ApplicationController
   private
 
   def plan_params
-    params.require(:plan).permit(:name, :notes, recipes_attributes: [:id, :name, :description, :servings, :calories])
+    params.permit(:name, :notes)
   end
 
   def find_plan
