@@ -1,7 +1,9 @@
 one:
+  id: 1
   name: Plan1
   notes: Dinners for Summer
 
 two:
+  id: 2
   name: Plan2
   notes: Thanksgiving for Friends
