@@ -1,7 +1,18 @@
 require 'test_helper'
 
 class IngredientTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "create a basic ingredient" do
+    ingredient = Ingredient.new
+    assert_not ingredient.valid?, "ingredient should not be valid yet."
+    ingredient = ingredients(:one)
+    assert ingredient.valid?, "basic ingredient should have been valid"
+    assert ingredient.save, "basic ingredient should have saved."
+  end
+  
+  def should_add_valid_category_and_warning
+    ingredient = ingredients(:one)
+    ingredient.category = Ingredient::CATEGORY.sample
+    ingredient.warning = Ingredient::WARNING.sample
+    assert ingredient.valid?, "ingredient should have been valid after category and warning"
+  end
 end
