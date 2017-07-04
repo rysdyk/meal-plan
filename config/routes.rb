@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :menus
   root "plans#index"
 
   resources :meals

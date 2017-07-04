@@ -1,0 +1,15 @@
+<%= simple_form_for(@menu) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :total_meals %>
+    <%= f.input :total_servings %>
+    <%= f.input :cost %>
+    <%= f.input :notes %>
+    <%= f.association :user %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

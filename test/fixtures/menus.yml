@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  total_meals: 1
+  total_servings: 1
+  cost: 9.99
+  notes: MyText
+  user: one
+
+two:
+  total_meals: 1
+  total_servings: 1
+  cost: 9.99
+  notes: MyText
+  user: two
