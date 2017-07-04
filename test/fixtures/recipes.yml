@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  description: MyText
-  servings: 
-  calories: 
+  name: Recipe1
+  description: Very good dinner
+  servings: 4
+  calories: 400
 
 two:
-  name: MyString
-  description: MyText
-  servings: 
-  calories: 
+  name: Recipe2
+  description: Very good lunch
+  servings: 2
+  calories: 250
