@@ -1,6 +1,14 @@
 body[data-controller=plans] {
   #recipe {
     border: 1px solid #666;
+    display: block;
+    margin-bottom: 20px;
     padding: 10px;
+
+    &:hover {
+      border-color: $blue;
+      box-shadow: 1px 1px 5px $blue;
+      transition: .5s;
+    }
   }
 }

@@ -1,5 +1,5 @@
 class Plan < ApplicationRecord
-  has_many :meals
-  has_many :recipes, through: :meals
+  belongs_to :user
+  has_many :recipes
   accepts_nested_attributes_for :recipes
 end

@@ -9,7 +9,7 @@ class PlansController < ApplicationController
   end
 
   def new
-    @plan = Plan.build
+    @plan = Plan.new
   end
 
   def create
@@ -44,7 +44,7 @@ class PlansController < ApplicationController
   private
 
   def plan_params
-    params.permit(:name, :notes)
+    params.require(:plan).permit(:name, :notes)
   end
 
   def find_plan

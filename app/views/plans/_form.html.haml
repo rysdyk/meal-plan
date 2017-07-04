@@ -1,6 +1,15 @@
-= form_for @plan do
-  = text_field_tag :name, @plan.name
-  = text_field_tag :notes, @plan.notes
+- if @plan.errors.any?
+  #form_error_message
+    %h2 #{pluralize(@plan.errors.count, "error")} with this form
+    %ul
+      - @plan.errors.full_messages.each do |msg|
+        %li= msg
+
+= simple_form_for @plan do |f|
+  = f.input :name
+  = f.input :notes
   - Recipe.all.each do |recipe|
-    = check_box_tag :recipe_ids, recipe.id, @plan.recipes.include?(recipe), name: 'plan[recipe_ids][]'
-  = submit_tag
+    = check_box_tag :recipe_ids, recipe.id, @plan.recipes.include?(recipe), name: "plan[recipe_ids][]"
+    = label_tag :recipe_ids, recipe.name
+    %br/
+  = f.button :submit

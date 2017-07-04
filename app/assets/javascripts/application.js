@@ -12,8 +12,18 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require foundation
 //= require turbolinks
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+function ready(fn) {
+  if (document.readyState!='loading') {
+    fn();
+  }
+  else {
+    document.addEventListener('DOMContentLoaded', fn);
+  }
+}
+
+ready(function() {
+  // Your code
+});
