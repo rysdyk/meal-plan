@@ -1,0 +1,29 @@
+<section class="title">
+  <h1><%= @recipe.name %></h1>
+</section>
+
+<section class="meta-info">
+  <div class="description">
+    <%= @recipe.description %>
+  </div>
+  <div class="servings">
+    <%= @recipe.servings %>
+  </div>
+  <div class="calories">
+    <%= @recipe.calories %>
+  </div>
+</section>
+
+<section class="ingredients">
+  <ul>
+    <% @recipe.ingredients.each do |ingredient| %>
+      <li><%= ingredient.name %>, <%= ingredient.quantity %>, <%= ingredient.unit %></li>
+    <% end %>
+  </ul>
+</section>
+
+<section class="instructions">
+  <ul>
+    <%# @recipe.instructions/steps %>
+  </ul>
+</section>

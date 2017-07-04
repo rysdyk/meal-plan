@@ -38,11 +38,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Project Specific Gems
 gem 'paperclip', '~> 5.1'  # for images
-# gem 'simple_form'   # rails generate simple_form:install --foundation
-gem 'haml', '~> 4.0', '>= 4.0.7'
-# gem 'devise', '~> 4.2', '>= 4.2.1'
 # gem 'cocoon' # nested forms
-gem "pure-css-rails"
 gem "autoprefixer-rails"
 
 group :development, :test do
