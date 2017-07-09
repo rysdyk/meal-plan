@@ -1,6 +1,11 @@
 header {
-  background-color: $white;
+  background-color: $green;
   margin-bottom: 20px;
   padding-bottom: 10px;
   padding-top: 10px;
+  
+  a { 
+    color: $white;
+    font-family: Arial, sans-serif;
+  }
 }

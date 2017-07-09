@@ -4,4 +4,13 @@ footer {
   margin-top: 20px;
   padding-bottom: 30px;
   padding-top: 30px;
+  
+  a {
+    color: #fff;
+    
+    &:hover {
+      color: $yellow;
+      transition: 0.2s;
+    }
+  }
 }
