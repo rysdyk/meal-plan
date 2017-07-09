@@ -8,8 +8,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= controller.controller_path %>">
-  <%= render 'header' %>
+  <%= render 'layouts/header' %>
   <%= yield %>
-  <%= render 'footer' %>
+  <%= render 'layouts/footer' %>
 </body>
 </html>

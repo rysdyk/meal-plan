@@ -1,15 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  id: 1
   name: Recipe1
   description: Very good dinner
   servings: 4
   calories: 400
+  cost: 1.00
+  user: one
 
 two:
-  id: 2
   name: Recipe2
   description: Very good lunch
   servings: 2
   calories: 250
+  cost: 1.25
+  user: two

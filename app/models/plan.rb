@@ -3,4 +3,6 @@ class Plan < ApplicationRecord
   has_many :recipes, through: :plans_recipes
   has_many :reviews, as: :reviewable
   # accepts_nested_attributes_for :recipes
+  
+  validates :user, :name, presence: true
 end

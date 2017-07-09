@@ -69,6 +69,6 @@ class MenusController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def menu_params
-      params.require(:menu).permit(:total_meals, :total_servings, :cost, :notes, :user_id)
+      params.require(:menu).permit(:total_meals, :total_servings, :cost, :notes, :start_date, :user_id)
     end
 end

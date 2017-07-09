@@ -17,7 +17,7 @@ class MenusControllerTest < ActionDispatch::IntegrationTest
 
   test "should create menu" do
     assert_difference('Menu.count') do
-      post menus_url, params: { menu: { cost: @menu.cost, notes: @menu.notes, total_meals: @menu.total_meals, total_servings: @menu.total_servings, user_id: @menu.user_id } }
+      post menus_url, params: { menu: { cost: @menu.cost, notes: @menu.notes, total_meals: @menu.total_meals, total_servings: @menu.total_servings, start_date: @menu.start_date, user_id: @menu.user.id } }
     end
 
     assert_redirected_to menu_url(Menu.last)
@@ -34,7 +34,7 @@ class MenusControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update menu" do
-    patch menu_url(@menu), params: { menu: { cost: @menu.cost, notes: @menu.notes, total_meals: @menu.total_meals, total_servings: @menu.total_servings, user_id: @menu.user_id } }
+    patch menu_url(@menu), params: { menu: { cost: @menu.cost, notes: @menu.notes, total_meals: @menu.total_meals, total_servings: @menu.total_servings, start_date: @menu.start_date, user_id: @menu.user_id } }
     assert_redirected_to menu_url(@menu)
   end
 

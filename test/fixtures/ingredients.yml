@@ -5,6 +5,9 @@ one:
   quantity: 3
   unit: Oz.
   recipe: one
-
-two:
-  name: MyString
+  
+one:
+  name: Green Pepper
+  quantity: 1
+  unit: whole pepper
+  recipe: one

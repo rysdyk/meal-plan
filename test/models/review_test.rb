@@ -8,8 +8,7 @@ class ReviewTest < ActiveSupport::TestCase
     assert_not review.valid?, "Review was considered valid with the content"
     review.review = "this was extremely decent"
     review.user = users(:one)
-    review.reviewable_id = 1
-    review.reviewable_type = "Recipe"
+    review.reviewable = recipes(:one)
     assert review.valid?, "Review should be valid"
     assert review.save, "Was not able to save a valid review"
   end

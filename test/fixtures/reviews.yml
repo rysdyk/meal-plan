@@ -4,12 +4,10 @@ one:
   rating: 5
   review: This was a very good recipe
   user_id: one (User)
-  reviewable_id: 1
-  reviewable_type: Recipe
+  reviewable: one (Recipe)
 
 two:
   rating: 4
   review: This was a very good plan
   user_id: two (User)
-  reviewable_id: 1
-  reviewable_type: Plan
+  reviewable: one (Plan)

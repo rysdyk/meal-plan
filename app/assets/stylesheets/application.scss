@@ -13,6 +13,6 @@
  *= require_self
  */
 
-@include "global/all";
-@include "components/all";
-@include "pages/all";
+@import 'global/all';
+@import 'components/all';
+@import 'pages/all';
