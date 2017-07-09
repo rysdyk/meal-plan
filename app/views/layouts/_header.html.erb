@@ -1,8 +1,13 @@
 <header>
-  <%= link_to 'Home', root_path %>
-  <% if current_user %>
-    Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
-  <% else %>
-    <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
-  <% end %>
+	<div class="container">
+		<%= link_to 'Home', root_path %>
+		
+		<span class="pull-right">
+			<% if current_user %>
+		    Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
+		  <% else %>
+		    <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+		  <% end %>	
+		</span>
+	</div>
 </header>

@@ -4,7 +4,7 @@
 
 <section>
 	<% @plans.each do |plan| %>
-		<div class="plan">
+		<div class="plan block">
 			<%= link_to plan.name, plan_path(plan) %>
 		</div>
 	<% end %>
