@@ -1,5 +1,6 @@
 header {
-  background-color: $green;
+  background-color: $dark_blue;
+  border-bottom: 3px solid $med_blue;
   margin-bottom: 20px;
   padding-bottom: 10px;
   padding-top: 10px;
@@ -7,5 +8,7 @@ header {
   a { 
     color: $white;
     font-family: Arial, sans-serif;
+    
+    &:hover { color: $orange; }
   }
 }

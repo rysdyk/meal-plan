@@ -1,5 +1,5 @@
 footer {
-  background-color: $blue;
+  background-color: $light_blue;
   color: #fff;
   margin-top: 20px;
   padding-bottom: 30px;
@@ -9,7 +9,7 @@ footer {
     color: #fff;
     
     &:hover {
-      color: $yellow;
+      color: $orange;
       transition: 0.2s;
     }
   }

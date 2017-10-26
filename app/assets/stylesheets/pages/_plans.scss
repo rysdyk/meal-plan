@@ -6,8 +6,8 @@ body[data-controller=plans] {
     padding: 10px;
 
     &:hover {
-      border-color: $blue;
-      box-shadow: 1px 1px 5px $blue;
+      border-color: $dark-blue;
+      box-shadow: 1px 1px 5px $dark_blue;
       transition: .5s;
     }
   }

@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
+  root "menus#index"
+
   resources :menus
-  root "plans#index"
-
-  resources :meals
-
-  resources :plans
 
   resources :recipes
+  
+  resources :ingredients
   
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
