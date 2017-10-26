@@ -10,19 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170709202410) do
+ActiveRecord::Schema.define(version: 20171026021110) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "courses", force: :cascade do |t|
-    t.integer  "recipe_id"
-    t.integer  "plan_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["plan_id"], name: "index_courses_on_plan_id", using: :btree
-    t.index ["recipe_id"], name: "index_courses_on_recipe_id", using: :btree
-  end
 
   create_table "ingredients", force: :cascade do |t|
     t.string   "name"
@@ -39,6 +30,15 @@ ActiveRecord::Schema.define(version: 20170709202410) do
     t.index ["recipe_id"], name: "index_ingredients_on_recipe_id", using: :btree
   end
 
+  create_table "menu_recipes_tables", force: :cascade do |t|
+    t.integer  "menu_id"
+    t.integer  "recipe_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["menu_id"], name: "index_menu_recipes_tables_on_menu_id", using: :btree
+    t.index ["recipe_id"], name: "index_menu_recipes_tables_on_recipe_id", using: :btree
+  end
+
   create_table "menus", force: :cascade do |t|
     t.integer  "total_meals"
     t.integer  "total_servings"
@@ -51,13 +51,14 @@ ActiveRecord::Schema.define(version: 20170709202410) do
     t.index ["user_id"], name: "index_menus_on_user_id", using: :btree
   end
 
-  create_table "plans", force: :cascade do |t|
-    t.string   "name"
-    t.text     "notes"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "user_id"
-    t.index ["user_id"], name: "index_plans_on_user_id", using: :btree
+  create_table "recipe_ingredients_tables", force: :cascade do |t|
+    t.integer  "recipe_id"
+    t.integer  "ingredient_id"
+    t.float    "quantity"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["ingredient_id"], name: "index_recipe_ingredients_tables_on_ingredient_id", using: :btree
+    t.index ["recipe_id"], name: "index_recipe_ingredients_tables_on_recipe_id", using: :btree
   end
 
   create_table "recipes", force: :cascade do |t|
@@ -93,8 +94,11 @@ ActiveRecord::Schema.define(version: 20170709202410) do
   end
 
   add_foreign_key "ingredients", "recipes"
+  add_foreign_key "menu_recipes_tables", "menus"
+  add_foreign_key "menu_recipes_tables", "recipes"
   add_foreign_key "menus", "users"
-  add_foreign_key "plans", "users"
+  add_foreign_key "recipe_ingredients_tables", "ingredients"
+  add_foreign_key "recipe_ingredients_tables", "recipes"
   add_foreign_key "recipes", "users"
   add_foreign_key "reviews", "users"
 end

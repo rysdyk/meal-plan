@@ -1,5 +1,6 @@
 class Ingredient < ApplicationRecord
-  belongs_to :recipe
+  has_many :recipe_ingredients
+  has_many :recipes, through: :recipe_ingredients
   
   CATEGORY = ['Vegan', 'Vegetarian', 'Gluten-Free', 'Diary-Free']
   WARNING = ['Dairy', 'Lactose', 'Gluten', 'Peanuts', 'Fish', 'Animal']
