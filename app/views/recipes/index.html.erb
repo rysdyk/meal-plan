@@ -1,1 +1,17 @@
-<%= @recipes %>
+<div class="row">
+	<%= link_to "Add New Recipe!", new_recipe_path %>
+</div>
+
+<div class="row">
+	<% @recipes.each do |recipe| %>
+		<div class="recipe">
+			<%# recipe.image %>
+			<h2><%= recipe.name %></h2>
+			<p><%= recipe.description %></p>
+			<p><%= link_to "View", recipe_path(recipe) %> | <%= link_to "Edit", edit_recipe_path(recipe) %></p>
+		</div>
+	<% end %>
+</div>
+
+
+
