@@ -15,11 +15,11 @@
 </section>
 
 <section class="ingredients">
-	<%= @recipe.ingredients %>
+	<%# @recipe.ingredients %>
   <ul>
-    <%# @recipe.ingredients.each do |ingredient| %>
-      <li><%#= ingredient.name %>, <%# ingredient.quantity %>, <%#= ingredient.unit %></li>
-    <%# end %>
+    <% @recipe.ingredients.each do |ingredient| %>
+      <li><%= ingredient.name %>, <%= ingredient.unit %></li>
+    <% end %>
   </ul>
 </section>
 

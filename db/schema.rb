@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171026021110) do
+ActiveRecord::Schema.define(version: 20171109033238) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,8 +26,6 @@ ActiveRecord::Schema.define(version: 20171026021110) do
     t.string   "source"
     t.string   "category"
     t.string   "warning"
-    t.integer  "recipe_id"
-    t.index ["recipe_id"], name: "index_ingredients_on_recipe_id", using: :btree
   end
 
   create_table "menu_recipes_tables", force: :cascade do |t|
@@ -51,14 +49,14 @@ ActiveRecord::Schema.define(version: 20171026021110) do
     t.index ["user_id"], name: "index_menus_on_user_id", using: :btree
   end
 
-  create_table "recipe_ingredients_tables", force: :cascade do |t|
+  create_table "recipe_ingredients", force: :cascade do |t|
     t.integer  "recipe_id"
     t.integer  "ingredient_id"
     t.float    "quantity"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.index ["ingredient_id"], name: "index_recipe_ingredients_tables_on_ingredient_id", using: :btree
-    t.index ["recipe_id"], name: "index_recipe_ingredients_tables_on_recipe_id", using: :btree
+    t.index ["ingredient_id"], name: "index_recipe_ingredients_on_ingredient_id", using: :btree
+    t.index ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id", using: :btree
   end
 
   create_table "recipes", force: :cascade do |t|
@@ -93,12 +91,11 @@ ActiveRecord::Schema.define(version: 20171026021110) do
     t.datetime "updated_at",      null: false
   end
 
-  add_foreign_key "ingredients", "recipes"
   add_foreign_key "menu_recipes_tables", "menus"
   add_foreign_key "menu_recipes_tables", "recipes"
   add_foreign_key "menus", "users"
-  add_foreign_key "recipe_ingredients_tables", "ingredients"
-  add_foreign_key "recipe_ingredients_tables", "recipes"
+  add_foreign_key "recipe_ingredients", "ingredients"
+  add_foreign_key "recipe_ingredients", "recipes"
   add_foreign_key "recipes", "users"
   add_foreign_key "reviews", "users"
 end

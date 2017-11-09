@@ -1,0 +1,29 @@
+<h1>New Recipe</h1>
+
+<%= form_for @recipe do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+  <%= f.label :description %>
+	<%= f.text_area :description %>
+	<%# f.label :directions  # create column in db %>
+	<%# f.text_area :directions %>
+	<%= f.label :servings %>
+	<%= f.number_field :servings %>
+	<%= f.label :calories %>
+	<%= f.number_field :calories %>
+	<%= f.label :cost %>
+	<%= f.number_field :cost %>
+	
+	<%# ingredients %>
+	<span>Ingredients</span>
+		
+	<%= f.fields_for :ingredients, @recipe.ingredients.build do |i| %>
+		<%= i.label :name %>
+		<%= i.text_field :name %>
+		<%= i.label :unit, 'Units' %>
+		<%= i.text_field :unit %>
+	<% end %>
+	
+	<%= f.submit "Submit" %>
+	
+<% end %>

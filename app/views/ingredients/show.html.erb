@@ -1,0 +1,13 @@
+<h1><%= @ingredient.name %></h1>
+<p><%= @ingredient.unit %></p>
+<ul>
+	<% @ingredient.category.split().each do |cat| %>
+		<%= content_tag :li, cat %>
+	<% end if @ingredient.category.present? %>
+</ul>
+<ul>
+	<% @ingredient.warning.split().each do |war| %>
+		<%= content_tag :li, war %>
+	<% end if @ingredient.warning.present? %>
+</ul>
+<%= link_to 'Edit', edit_ingredient_path(@ingredient) %>
