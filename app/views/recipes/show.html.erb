@@ -1,30 +1,46 @@
-<section class="title">
+<section class="title text-center">
   <h1><%= @recipe.name %></h1>
 </section>
 
-<section class="meta-info">
+<section class="meta-info block clearfix">
   <div class="description">
-    <%= @recipe.description %>
+		<h5>Description</h5>
+    <p><%= @recipe.description %></p>
   </div>
   <div class="servings">
-    <%= @recipe.servings %>
+		<h5>Servings</h5>
+    <p><%= @recipe.servings %></p>
   </div>
   <div class="calories">
-    <%= @recipe.calories %>
+		<h5>Calories</h5>
+    <p><%= @recipe.calories %></p>
   </div>
 </section>
 
 <section class="ingredients">
-	<%# @recipe.ingredients %>
-  <ul>
-    <% @recipe.ingredients.each do |ingredient| %>
-      <li><%= ingredient.name %>, <%= ingredient.unit %></li>
-    <% end %>
-  </ul>
+	<div class="block">
+		<h3>Ingredients</h3>
+	  <ul>
+	    <% @recipe.ingredients.each do |ingredient| %>
+	      <li><%= ingredient.name %>, <%= ingredient.unit %></li>
+	    <% end %>
+	  </ul>
+	</div>
+	
 </section>
 
 <section class="instructions">
-  <ul>
-    <%# @recipe.instructions/steps %>
-  </ul>
+	<div class="block">
+		<h3>Instructions</h3>
+	  <ul>
+	    <% @recipe.instructions.each do |step| %>
+				<li><%= step %></li>
+			<% end if @recipe.instructions.present? %>
+	  </ul>
+	</div>
+
+</section>
+
+<section class="links text-center">
+	<%= link_to 'Back', recipes_path %> | <%= link_to 'Edit', edit_recipe_path(@recipe) %>	
 </section>

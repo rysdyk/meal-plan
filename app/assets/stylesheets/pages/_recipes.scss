@@ -1,3 +1,18 @@
 .recipe {
   @include columns(4);
+  margin-bottom: 20px;
+}
+
+.meta-info {
+  > div {
+    @include columns(4);
+    border-left: 2px solid #dedede;
+    text-align: center;
+    
+    &:first-child { border-left: none; }
+    
+    h5 {
+      color: #dedede;
+    }
+  }
 }

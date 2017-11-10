@@ -12,4 +12,13 @@ class Recipe < ApplicationRecord
   
   validates :name, presence: true, uniqueness: true
   validates :description, :servings, :calories, :cost, presence: true
+  
+  # prevents duplicate ingredients from being created
+  def ingredients_attributes=(ingredient_attributes)
+    ingredient_attributes.values.each do |ingredient_attribute|
+      ingredient = Ingredient.find_or_create_by(ingredient_attribute)
+      self.ingredients << ingredient
+    end
+  end
+  
 end

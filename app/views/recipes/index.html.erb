@@ -1,14 +1,15 @@
-<div class="row">
-	<%= link_to "Add New Recipe!", new_recipe_path %>
-</div>
+<section class="text-right">
+	<%= link_to "+ New Recipe!", new_recipe_path %>
+</section>
 
 <div class="row">
 	<% @recipes.each do |recipe| %>
-		<div class="recipe">
-			<%# recipe.image %>
-			<h2><%= recipe.name %></h2>
-			<p><%= recipe.description %></p>
-			<p><%= link_to "View", recipe_path(recipe) %> | <%= link_to "Edit", edit_recipe_path(recipe) %></p>
+		<div class='recipe'>
+			<%= link_to recipe, class: 'block' do %>
+				<%# recipe.image %>
+				<h2><%= recipe.name %></h2>
+				<p><%= recipe.description %></p>
+			<% end %>
 		</div>
 	<% end %>
 </div>
