@@ -1,16 +1,15 @@
 footer {
-  background-color: $gray_5;
-  border-top: 3px solid $gray_3;
-  color: $white;
+  border-top: 5px solid $gray_3;
+  color: $gray_3;
   margin-top: 20px;
   padding-bottom: 30px;
   padding-top: 30px;
   
   a {
-    color: #fff;
+    color: $gray_3;
     
     &:hover {
-      color: $green_1;
+      color: $green_3;
       transition: 0.2s;
     }
   }

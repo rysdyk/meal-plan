@@ -1,15 +1,14 @@
 header {
-  background-color: $green_4;
-  border-bottom: 3px solid $green_2;
-  color: $white;
+  border-bottom: 5px solid $green_3;
+  color: $green_3;
   margin-bottom: 20px;
   padding-bottom: 10px;
   padding-top: 10px;
   
   a { 
-    color: $white;
+    color: $green_3;
     font-family: Arial, sans-serif;
     
-    &:hover { color: $light_purple; }
+    &:hover { color: $green_2; }
   }
 }

@@ -25,5 +25,7 @@
   <%= @menu.user %>
 </p>
 
-<%= link_to 'Edit', edit_menu_path(@menu) %> |
-<%= link_to 'Back', menus_path %>
+<section class="text-center">
+	<%= link_to 'All Menus', menus_path %> | <%= link_to 'Edit', edit_menu_path(@menu) %>
+</section>
+

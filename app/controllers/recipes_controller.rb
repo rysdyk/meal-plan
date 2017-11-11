@@ -2,7 +2,11 @@ class RecipesController < ApplicationController
   before_action :get_recipe, only: [:show, :edit, :update, :destroy]
 
   def index
-    @recipes = Recipe.all
+    if params[:q].present?
+      @recipes = Recipe.where('lower(recipes.name) LIKE :search OR lower(recipes.description) LIKE :search OR lower(ingredients.name) LIKE :search OR lower(ingredients.generic_name) LIKE :search', search: "%#{params[:q].downcase}%").joins(:ingredients).distinct
+    else
+      @recipes = Recipe.all
+    end
   end
 
   def show

@@ -2,6 +2,15 @@
 	<%= link_to "+ New Recipe!", new_recipe_path %>
 </section>
 
+<section>
+	<%= form_tag("/recipes", method: "get") do %>
+	  <%= label_tag(:q, "Search for:") %>
+	  <%= text_field_tag(:q) %>
+	  <%= submit_tag("Search") %>
+		<%= link_to 'Clear', recipes_path %>
+	<% end %>
+</section>
+
 <div class="row">
 	<% @recipes.each do |recipe| %>
 		<div class='recipe'>

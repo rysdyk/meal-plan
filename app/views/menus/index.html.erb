@@ -1,37 +1,41 @@
-<p id="notice"><%= notice %></p>
-
 <%# Add a big generic search field for recipes and prompt to create a new menu %>
+<section class="text-center">	
+	<h1>Menus</h1>
+</section>
 
-<h1>Menus</h1>
+<section class="text-right">
+	<%= link_to 'New Menu', new_menu_path %>
+</section>
 
-<table>
-  <thead>
-    <tr>
-      <th>Total meals</th>
-      <th>Total servings</th>
-      <th>Cost</th>
-      <th>Notes</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<section>
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Total meals</th>
+	      <th>Total servings</th>
+	      <th>Cost</th>
+	      <th>Notes</th>
+	      <th>User</th>
+	      <th colspan="3"></th>
+	    </tr>
+	  </thead>
 
-  <tbody>
-    <% @menus.each do |menu| %>
-      <tr>
-        <td><%= menu.total_meals %></td>
-        <td><%= menu.total_servings %></td>
-        <td><%= menu.cost %></td>
-        <td><%= menu.notes %></td>
-        <td><%= menu.user %></td>
-        <td><%= link_to 'Show', menu %></td>
-        <td><%= link_to 'Edit', edit_menu_path(menu) %></td>
-        <td><%= link_to 'Destroy', menu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+	  <tbody>
+	    <% @menus.each do |menu| %>
+	      <tr>
+	        <td><%= menu.total_meals %></td>
+	        <td><%= menu.total_servings %></td>
+	        <td><%= menu.cost %></td>
+	        <td><%= menu.notes %></td>
+	        <td><%= menu.user %></td>
+	        <td><%= link_to 'Show', menu %></td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+</section>
 
-<br>
 
-<%= link_to 'New Menu', new_menu_path %>
+
+
+

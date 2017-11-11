@@ -15,10 +15,12 @@ class Recipe < ApplicationRecord
   
   # prevents duplicate ingredients from being created
   def ingredients_attributes=(ingredient_attributes)
+    puts '#' * 30
+    puts ingredient_attributes.values
     ingredient_attributes.values.each do |ingredient_attribute|
       ingredient = Ingredient.find_or_create_by(ingredient_attribute)
       self.ingredients << ingredient
-    end
+    end if ingredient_attributes.values[0][:name].present?
   end
   
 end

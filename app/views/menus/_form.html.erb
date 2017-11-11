@@ -12,11 +12,14 @@
   <% end %>
 
   <div class="form-inputs">
+		<%= f.label :total_meals %>
     <%= f.number_field :total_meals %>
+		<%=	f.label :total_servings %>
     <%= f.number_field :total_servings %>
+		<%= f.label :cost %>
     <%= f.number_field :cost %>
+		<%= f.label :notes %>
     <%= f.text_area :notes %>
-    <%# f.association :user %>
   </div>
 
   <div class="form-actions">
