@@ -1,7 +1,7 @@
 footer {
-  background-color: #333;
-  border-top: 5px solid $med_blue;
-  color: #fff;
+  background-color: $gray_5;
+  border-top: 3px solid $gray_3;
+  color: $white;
   margin-top: 20px;
   padding-bottom: 30px;
   padding-top: 30px;
@@ -10,7 +10,7 @@ footer {
     color: #fff;
     
     &:hover {
-      color: $orange;
+      color: $green_1;
       transition: 0.2s;
     }
   }

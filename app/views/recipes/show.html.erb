@@ -19,10 +19,10 @@
 
 <section class="ingredients">
 	<div class="block">
-		<h3>Ingredients</h3>
+		<h3>Ingredients (<%= @recipe.ingredients.count %>)</h3>
 	  <ul>
 	    <% @recipe.ingredients.each do |ingredient| %>
-	      <li><%= ingredient.name %>, <%= ingredient.unit %></li>
+	      <li><%= link_to ingredient.name, ingredient %>, <%= ingredient.unit %></li>
 	    <% end %>
 	  </ul>
 	</div>
@@ -42,5 +42,5 @@
 </section>
 
 <section class="links text-center">
-	<%= link_to 'Back', recipes_path %> | <%= link_to 'Edit', edit_recipe_path(@recipe) %>	
+	<%= link_to 'All Recipes', recipes_path %> | <%= link_to 'Edit', edit_recipe_path(@recipe) %>	
 </section>

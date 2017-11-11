@@ -1,6 +1,22 @@
-<ul>
-	<% @ingredients.each do |ingredient| %>
-		<li><%= link_to ingredient.name, ingredient_path(ingredient) %></li>
-	<% end %>
-</ul>
+<section class="text-right">
+	<%= link_to '+ New Ingredient', new_ingredient_path %>
+</section>
 
+<section>
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Generic</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @ingredients.each do |ingredient| %>
+				<tr>
+					<td><%= link_to ingredient.name, ingredient_path(ingredient) %></td>
+					<td><%= ingredient.generic_name %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</section>

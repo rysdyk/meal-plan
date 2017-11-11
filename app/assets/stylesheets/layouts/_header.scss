@@ -1,6 +1,7 @@
 header {
-  background-color: $dark_blue;
-  border-bottom: 3px solid $med_blue;
+  background-color: $green_4;
+  border-bottom: 3px solid $green_2;
+  color: $white;
   margin-bottom: 20px;
   padding-bottom: 10px;
   padding-top: 10px;
@@ -9,6 +10,6 @@ header {
     color: $white;
     font-family: Arial, sans-serif;
     
-    &:hover { color: $orange; }
+    &:hover { color: $light_purple; }
   }
 }

@@ -1,6 +1,18 @@
 .recipe {
   @include columns(4);
   margin-bottom: 20px;
+  
+  a.block {
+    color: $gray_5;
+    text-align: center;
+    
+    &:hover {
+      border: 2px solid $green_2;
+      transition: .5s;
+    }
+  }
+  
+  h2 { color: $green_3; }
 }
 
 .meta-info {

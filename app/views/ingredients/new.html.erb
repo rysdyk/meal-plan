@@ -1,0 +1,25 @@
+<%= form_for @ingredient do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	<%= f.label :generic_name %>
+	<%= f.text_field :generic_name %>
+	<%= f.label :quantity %>
+	<%= f.number_field :quantity %>
+	<%= f.label :unit %>
+	<%= f.text_field :unit %>
+	<%= f.label :substitution %>
+	<%= f.text_field :substitution %>
+	<%= f.label :source %>
+	<%= f.text_field :source %>
+	<p>Categories</p>
+	<% Ingredient::CATEGORY.each do |cat| %>
+		<%= f.label :category, cat %>
+		<%= f.check_box :category, {multiple: true}, cat, nil %>
+	<% end %>
+	<p>Warning</p>
+	<% Ingredient::WARNING.each do |war| %>
+		<%= f.label :warning, war %>
+		<%= f.check_box :warning, {multiple: true}, war, nil %>
+	<% end %>
+	<%= f.submit "Submit" %>
+<% end %>

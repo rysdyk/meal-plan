@@ -7,7 +7,7 @@ class Recipe < ApplicationRecord
   has_many :menus, through: :menu_receipes
   
   has_many :recipe_ingredients
-  has_many :ingredients, through: :recipe_ingredients
+  has_many :ingredients, through: :recipe_ingredients, dependent: :destroy
   accepts_nested_attributes_for :ingredients
   
   validates :name, presence: true, uniqueness: true

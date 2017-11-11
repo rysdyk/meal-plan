@@ -1,0 +1,15 @@
+table {
+  border: 2px solid $light_gray;
+  width: 100%;
+  
+  th {
+    font-size: 1.6rem;
+    text-align-last: right;
+  }
+  
+  td {
+    padding: 3px 5px;
+    
+    a { color: $green_3; }
+  }
+}

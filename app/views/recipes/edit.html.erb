@@ -14,7 +14,6 @@
 	<%= f.label :cost %>
 	<%= f.number_field :cost %>
 	
-	<%# ingredients %>
 	<span>Ingredients</span>
 		
 	<%= f.fields_for :ingredients, @recipe.ingredients.build do |i| %>
@@ -23,6 +22,9 @@
 		<%= i.label :unit, 'Units' %>
 		<%= i.text_field :unit %>
 	<% end %>
+	
+	<%= f.label :instructions %>
+	<%= f.text_area :instructions %>
 	
 	<%= f.submit "Submit" %>
 	

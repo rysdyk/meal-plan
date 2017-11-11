@@ -1,5 +1,6 @@
 .block {
-  background-color: #fff;
+  background-color: $white;
+  border: 2px solid $light_gray;
   display: block;
   padding: 15px;
 }
