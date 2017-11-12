@@ -3,6 +3,9 @@
 
 body {
   background-color: #fff;
+  border-bottom: 5px solid $blue;
+  border-top: 5px solid $blue;
+  color: $blue;
 }
 
 .main {

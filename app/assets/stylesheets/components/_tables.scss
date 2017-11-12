@@ -1,5 +1,5 @@
 table {
-  border: 2px solid $light_gray;
+  border: 2px solid $gray;
   width: 100%;
   
   th {
@@ -10,6 +10,6 @@ table {
   td {
     padding: 3px 5px;
     
-    a { color: $green_3; }
+    a { color: $green; }
   }
 }

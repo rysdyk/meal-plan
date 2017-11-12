@@ -1,14 +1,17 @@
 header {
-  border-bottom: 5px solid $green_3;
-  color: $green_3;
+  border-bottom: 5px solid $green;
+  color: $green;
   margin-bottom: 20px;
   padding-bottom: 10px;
   padding-top: 10px;
   
   a { 
-    color: $green_3;
+    color: $green;
     font-family: Arial, sans-serif;
     
-    &:hover { color: $green_2; }
+    &:hover {
+      color: lighten($green, .7);
+      transition: .5s;
+    }
   }
 }

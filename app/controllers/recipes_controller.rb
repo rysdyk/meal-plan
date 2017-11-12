@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
 
   def index
     if params[:q].present?
-      @recipes = Recipe.where('lower(recipes.name) LIKE :search OR lower(recipes.description) LIKE :search OR lower(ingredients.name) LIKE :search OR lower(ingredients.generic_name) LIKE :search', search: "%#{params[:q].downcase}%").joins(:ingredients).distinct
+      @recipes = Recipe.where('lower(recipes.name) LIKE :search OR lower(recipes.description) LIKE :search OR lower(ingredients.name) LIKE :search OR lower(ingredients.generic_name) LIKE :search', search: "%#{params[:q].downcase}%").includes(:ingredients).references(:ingredients).distinct
     else
       @recipes = Recipe.all
     end

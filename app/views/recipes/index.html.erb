@@ -2,12 +2,11 @@
 	<%= link_to "+ New Recipe!", new_recipe_path %>
 </section>
 
-<section>
+<section id="search-box">
 	<%= form_tag("/recipes", method: "get") do %>
-	  <%= label_tag(:q, "Search for:") %>
-	  <%= text_field_tag(:q) %>
+	  <%= text_field_tag :q, nil, placeholder: 'Search For:' %>
 	  <%= submit_tag("Search") %>
-		<%= link_to 'Clear', recipes_path %>
+		<%= link_to 'Clear', recipes_path, class: 'btn clear' %>
 	<% end %>
 </section>
 

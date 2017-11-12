@@ -3,16 +3,16 @@
   margin-bottom: 20px;
   
   a.block {
-    color: $gray_5;
+    color: $blue;
     text-align: center;
     
     &:hover {
-      border: 2px solid $green_2;
+      border: 2px solid $green;
       transition: .5s;
     }
   }
   
-  h2 { color: $green_3; }
+  h2 { color: $green; }
 }
 
 .meta-info {
@@ -25,6 +25,56 @@
     
     h5 {
       color: #dedede;
+    }
+  }
+}
+
+#search-box {
+  overflow: hidden;
+  vertical-align: top;
+  
+  input, a { box-sizing: border-box; }
+  
+  input[type=text] {
+    color: $blue;
+    float: left;
+    font-size: 2.4rem;
+    margin: 0;
+    padding: 10px;
+    width: 75%;
+  }
+  
+  input[type=submit] {
+    background-color: $green;
+    border-radius: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    float: left;
+    font-size: 2.4rem;
+    margin: 0;
+    padding: 12px 10px;
+    width: 15%;
+    
+    &:hover {
+      background-color: darken($green, 10%);
+      transition: .5s;
+    }
+  }
+  
+  a.clear {
+    background-color: $white;
+    border: none;
+    color: $gray;
+    float: left;
+    font-size: 2.4rem;
+    padding: 14px 10px;
+    text-align: center;
+    width: 10%;
+    
+    &:hover {
+      background-color: darken($white, 10%);
+      transition: .5s;
     }
   }
 }
