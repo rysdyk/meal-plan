@@ -14,14 +14,13 @@
 	<%= f.label :cost %>
 	<%= f.number_field :cost %>
 	
-	<span>Ingredients</span>
+	<span>Ingredients (<%= @recipe.ingredients.count %>)</span>
 		
-	<%= f.fields_for :ingredients, @recipe.ingredients.build do |i| %>
-		<%= i.label :name %>
-		<%= i.text_field :name %>
-		<%= i.label :unit, 'Units' %>
-		<%= i.text_field :unit %>
+	<%= f.fields_for :ingredients do |builder| %>
+		<%= render 'ingredient_fields', f: builder %>
 	<% end %>
+	
+	<%= link_to_add_fields "Add Ingredient", f, :ingredients %>
 	
 	<%= f.label :instructions %>
 	<%= f.text_area :instructions %>
