@@ -4,7 +4,7 @@
 html { font-size: 62.5%; }
 
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: $lato;
 }
 
 h1 { font-size: 3.4rem; }
@@ -15,13 +15,13 @@ h5 { font-size: 1.8rem; }
 h6 { font-size: 1.4rem; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Open Sans', sans-serif;
+  font-family: $open_sans;
   line-height: 1;
   margin-bottom: 1rem;
 }
 
 p {
-  font-family: 'Lato', sans-serif;
+  font-family: $lato;
   line-height: 1.5;
   margin-bottom: 3rem;
 }
@@ -31,3 +31,13 @@ a { text-decoration: none;}
 p, span, a, li, div, section { font-size: 1.6rem; }
 
 p a { text-decoration: underline; }
+
+a {
+  color: $green;
+  
+  &:active, &:visited { color: $green; }
+  &:hover {
+    color: $blue;
+    transition: .5s;
+  }
+}

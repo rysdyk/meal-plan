@@ -10,14 +10,13 @@
       </ul>
     </div>
   <% end %>
+	
+	<% Recipe.all.each do |r| %>
+		<%= check_box_tag 'menu[recipe][]', r.id %>
+		<%= r.name %>
+	<% end %>
 
   <div class="form-inputs">
-		<%= f.label :total_meals %>
-    <%= f.number_field :total_meals %>
-		<%=	f.label :total_servings %>
-    <%= f.number_field :total_servings %>
-		<%= f.label :cost %>
-    <%= f.number_field :cost %>
 		<%= f.label :notes %>
     <%= f.text_area :notes %>
   </div>

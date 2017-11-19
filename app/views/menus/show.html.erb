@@ -22,8 +22,15 @@
 
 <p>
   <strong>User:</strong>
-  <%= @menu.user %>
+  <%# @menu.user %>
 </p>
+
+<h5>Recipes</h5>
+<ul>
+	<% @menu.recipes.each do |recipe| %>
+		<%= link_to recipe.name, recipes_path(recipe) %>
+	<% end %>
+</ul>
 
 <section class="text-center">
 	<%= link_to 'All Menus', menus_path %> | <%= link_to 'Edit', edit_menu_path(@menu) %>
