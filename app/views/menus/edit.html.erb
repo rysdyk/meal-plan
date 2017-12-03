@@ -1,6 +1,35 @@
-<h1>Editing Menu</h1>
+<h1>Edit Menu</h1>
 
-<%= render 'form', menu: @menu %>
+<%= form_for @menu do |f| %>
+
+	<% if @menu.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@menu.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @menu.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+	<%= f.fields_for :menu_recipes do |mr| %>
+		<%= mr.object.recipe.name %>
+		<%= mr.label :servings %>
+		<%= mr.number_field :servings %>
+	<% end %>
+	
+  <div class="form-inputs">
+		<%= f.label :notes %>
+    <%= f.text_area :notes %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
 
 <%= link_to 'Show', @menu %> |
 <%= link_to 'Back', menus_path %>

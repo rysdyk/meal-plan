@@ -25,9 +25,9 @@
 	      <tr>
 	        <td><%= menu.total_meals %></td>
 	        <td><%= menu.total_servings %></td>
-	        <td><%= menu.cost %></td>
+	        <td><%= number_to_currency(menu.cost) %></td>
 	        <td><%= menu.notes %></td>
-	        <td><%= menu.user %></td>
+	        <td><%# menu.user %></td>
 	        <td><%= link_to 'Show', menu %></td>
 	      </tr>
 	    <% end %>

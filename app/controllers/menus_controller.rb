@@ -19,6 +19,7 @@ class MenusController < ApplicationController
 
   # GET /menus/1/edit
   def edit
+    @menu = Menu.find(params[:id])
   end
 
   # POST /menus
@@ -31,7 +32,7 @@ class MenusController < ApplicationController
         format.html { redirect_to @menu, notice: 'Menu was successfully created.' }
         format.json { render :show, status: :created, location: @menu }
       else
-        format.html { render :new }
+        format.html { render :new, warning: 'Menu could not be saved.' }
         format.json { render json: @menu.errors, status: :unprocessable_entity }
       end
     end
@@ -40,12 +41,14 @@ class MenusController < ApplicationController
   # PATCH/PUT /menus/1
   # PATCH/PUT /menus/1.json
   def update
+    @menu = Menu.find(params[:id])
+    
     respond_to do |format|
-      if @menu.update(menu_params)
+      if @menu.update!(menu_params)
         format.html { redirect_to @menu, notice: 'Menu was successfully updated.' }
         format.json { render :show, status: :ok, location: @menu }
       else
-        format.html { render :edit }
+        format.html { render :edit, warning: 'Menu could not be updated.' }
         format.json { render json: @menu.errors, status: :unprocessable_entity }
       end
     end
@@ -69,6 +72,7 @@ class MenusController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def menu_params
-      params.require(:menu).permit(:total_meals, :total_servings, :cost, :notes, :start_date, :user_id, recipe_ids: [])
+      params.require(:menu).permit(:total_meals, :notes, 
+      :start_date, :user_id, menu_recipes_attributes: [:id, :servings])
     end
 end

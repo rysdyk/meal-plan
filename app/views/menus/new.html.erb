@@ -1,6 +1,47 @@
 <h1>New Menu</h1>
 
-<%= render 'form', menu: @menu %>
+<%= form_for(@menu) do |f| %>
+	<% if @menu.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@menu.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @menu.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	
+	<%# this works for edit, will have to adjust for new %>
+	<div class="row">
+		<% Recipes.all.each_with_index do |r, i| %>
+			<div class="recipe block">
+			  <%= r.recipe.name %>
+				<%= check_box_tag 'menu[recipe_ids][]', r.id %>
+				<%= label_tag "menu[recipes_ids][#{r.id}][servings][]", "Servings" %>
+				<%= hidden_field_tag "menu[menu_recipes_attributes][recipe_id]", r.recipe.id %>
+				<%= number_field_tag "menu[menu_recipes_attributes][servings]", r.servings %>
+				<%# f.object.menu_recipes.select { |mr| mr.recipe_id == r.id}.try(:servings) %>
+			</div>
+			<% if i%4 == 4 %>
+				</div>
+				<div class="row">
+			<% end %>
+		<% end %>
+		<%= link_to 'Add Recipes' %>
+	</div>
+	
+  <div class="form-inputs">
+		<%= f.label :notes %>
+    <%= f.text_area :notes %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
 
 <div class="text-center">
 	<%= link_to 'Cancel', menus_path %>

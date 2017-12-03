@@ -1,0 +1,5 @@
+.main.menus {
+  .recipe {
+    @include columns(3);
+  }
+}

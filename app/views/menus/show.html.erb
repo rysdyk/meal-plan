@@ -12,7 +12,7 @@
 
 <p>
   <strong>Cost:</strong>
-  <%= @menu.cost %>
+  <%= number_to_currency(@menu.cost) %>
 </p>
 
 <p>
@@ -27,8 +27,11 @@
 
 <h5>Recipes</h5>
 <ul>
-	<% @menu.recipes.each do |recipe| %>
-		<%= link_to recipe.name, recipes_path(recipe) %>
+	<% @menu.menu_recipes.each do |mr| %>
+		<li>
+			<%= link_to(mr.recipe.name, recipe_path(mr.recipe)) %>
+			(quantity: <%= mr.servings.to_i %>)
+		</li>
 	<% end %>
 </ul>
 
