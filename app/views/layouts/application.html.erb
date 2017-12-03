@@ -8,8 +8,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render 'layouts/header' %>
-	<p id="notice"><%= notice %></p>
+	<%= render 'layouts/header' %>
+	
+	<% flash.each do |name, msg| %>
+		<div id="flash" class="<%= name %>">
+			<div class="container">			
+				<span><%= msg %></span>
+			</div>
+		</div>
+	<% end %>
+	
 	<div class="container main <%= controller.controller_name %>">		
 	  <%= yield %>
 	</div>

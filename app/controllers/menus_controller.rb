@@ -29,7 +29,7 @@ class MenusController < ApplicationController
 
     respond_to do |format|
       if @menu.save
-        format.html { redirect_to @menu, notice: 'Menu was successfully created.' }
+        format.html { redirect_to @menu, success: 'Menu was successfully created.' }
         format.json { render :show, status: :created, location: @menu }
       else
         format.html { render :new, warning: 'Menu could not be saved.' }
@@ -45,7 +45,7 @@ class MenusController < ApplicationController
     
     respond_to do |format|
       if @menu.update!(menu_params)
-        format.html { redirect_to @menu, notice: 'Menu was successfully updated.' }
+        format.html { redirect_to @menu, success: 'Menu was successfully updated.' }
         format.json { render :show, status: :ok, location: @menu }
       else
         format.html { render :edit, warning: 'Menu could not be updated.' }

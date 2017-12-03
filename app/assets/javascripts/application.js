@@ -25,5 +25,7 @@ function ready(fn) {
 }
 
 ready(function() {
-  // Your code
+  setTimeout(function() {
+    $('#flash').slideUp();
+  }, 3000);
 });

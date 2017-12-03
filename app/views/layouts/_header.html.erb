@@ -1,15 +1,15 @@
 <div class="container">
 	<header>
-		<%= link_to 'Recipes on Rails', root_path %>
+		<%= link_to 'Meals on Rails', root_path %>
 		
 		<span class="pull-right">
-			<!--
-			<%# if current_user %>
-		    Signed in as <%# current_user.name %> | <%# link_to "Logout", '/logout' %>
-		  <%# else %>
-		    <%# link_to 'Login', '/login' %> | <%# link_to 'Signup', '/signup' %>
-		  <%# end %>	
-			-->
+
+			<% if current_user %>
+		    Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %> |
+		  <% else %>
+		    <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %> |
+		  <% end %>	
+
 			<%= link_to 'Recipes', recipes_path %> | 
 			<%= link_to 'Menus', menus_path %> | 
 			<%= link_to 'Ingredients', ingredients_path %>

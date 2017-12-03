@@ -1,0 +1,17 @@
+#flash {
+  
+  .container {
+    color: $white;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+  
+  &.notice .container { background-color: $gray }
+  
+  &.warning .container { background-color: red; }
+  
+  &.success .container { background-color: $green }
+  
+  &.info .container { background-color: $gray }
+  
+}
