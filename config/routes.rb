@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   resources :menus
 
-  resources :recipes
+  resources :recipes do
+    post "add-to-menu", to: "recipes#add_to_menu"
+  end
   
   resources :ingredients
   

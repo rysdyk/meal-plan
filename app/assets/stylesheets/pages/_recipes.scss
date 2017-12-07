@@ -17,7 +17,7 @@
 
 .meta-info {
   > div {
-    @include columns(4);
+    @include columns(3);
     border-left: 2px solid #dedede;
     text-align: center;
     

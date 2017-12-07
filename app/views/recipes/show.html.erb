@@ -2,14 +2,16 @@
 
 <section class="title text-center">
   <h1><%= @recipe.name %></h1>
+	<div class="add_recipe">
+		<%= link_to "Add to Existing Menu", '#', id: 'add-existing-menu' %> | 
+		<%= link_to "Add to New Menu" %>
+	</div>
 </section>
 
 <section class="meta-info block clearfix">
   <div class="description">
 		<h5>Description</h5>
     <p><%= @recipe.description %></p>
-		<h5>Cost</h5>
-		<p><%= @recipe.cost %></p>
   </div>
   <div class="servings">
 		<h5>Servings</h5>
@@ -19,6 +21,10 @@
 		<h5>Calories</h5>
     <p><%= @recipe.calories %></p>
   </div>
+	<div class="cost">
+		<h5>Cost</h5>
+		<p><%= @recipe.cost %></p>
+	</div>
 </section>
 
 <section class="ingredients">
@@ -48,3 +54,23 @@
 <section class="links text-center">
 	<%= link_to 'All Recipes', recipes_path %> | <%= link_to 'Edit', edit_recipe_path(@recipe) %>	
 </section>
+
+<div id="add-existing-menu-form">
+	<%= link_to 'close', '#', id: 'close' %>
+	<%= form_tag(recipe_add_to_menu_path(@recipe), remote: true) do %>
+		<%= select_tag :menu, options_from_collection_for_select(Menu.all, "id", "id") %>
+		<%= submit_tag "Submit" %>
+	<% end %>
+</div>
+
+<script>
+	$('#add-existing-menu').click( function(e){
+		e.preventDefault();
+		$("#add-existing-menu-form").show();
+	})
+	
+	$('#close').click(function(e) {
+		e.preventDefault();
+		$("#add-existing-menu-form").hide();
+	})
+</script>

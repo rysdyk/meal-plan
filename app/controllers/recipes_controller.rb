@@ -41,6 +41,13 @@ class RecipesController < ApplicationController
   def destroy
     @recipe.destroy
   end
+  
+  def add_to_menu
+    recipe = Recipe.find(params[:recipe_id])
+    menu = Menu.find(params[:menu])
+    
+    menu.recipes << recipe
+  end
 
   private
 

@@ -13,6 +13,16 @@
     </div>
   <% end %>
 	
+  <div class="form-inputs">
+		<%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+	
+  <div class="form-inputs">
+		<%= f.label :start_date %>
+    <%= f.date_select :start_date %>
+  </div>
+	
 	<%# this works for edit, will have to adjust for new %>
 	<div class="row">
 		<% Recipes.all.each_with_index do |r, i| %>

@@ -13,11 +13,22 @@
       </ul>
     </div>
   <% end %>
+	
+  <div class="form-inputs">
+		<%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+	
+  <div class="form-inputs">
+		<%= f.label :start_date %>
+    <%= f.date_select :start_date %>
+  </div>
 
 	<%= f.fields_for :menu_recipes do |mr| %>
 		<%= mr.object.recipe.name %>
 		<%= mr.label :servings %>
 		<%= mr.number_field :servings %>
+		<%# remove recipes %>
 	<% end %>
 	
   <div class="form-inputs">
